@@ -5,16 +5,19 @@ const getImageData = () => {
       mode: 'cors',
     }).then((res) => {
       res.text().then((text) => {
-        var myArray = text.match(/<img.*?src="(.*?)".*?>/gm);
-        if (myArray.length === 0) {
+        let myArray = text.match(/<img.*?src="(.*?)".*?>/gm);
+        let imgs = myArray.filter((item) => {
+          if (~item.indexOf('width:42px')) return;
+          if (~item.indexOf('svg')) return;
+          if (~item.indexOf('gzip')) return;
+          return item;
+        });
+        if (imgs.length === 0) {
           let ele = document.createElement('div');
           ele.innerText = ' (Non Image)';
           a.parentNode.append(ele);
         } else {
-          myArray.map((item) => {
-            if (~item.indexOf('width:42px')) return;
-            if (~item.indexOf('svg')) return;
-            if (~item.indexOf('gzip')) return;
+          imgs.map((item) => {
             let ele = document.createElement('div');
             ele.style.maxWidth = '80px';
             ele.style.maxHeight = '80px';

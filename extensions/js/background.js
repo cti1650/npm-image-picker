@@ -19,8 +19,8 @@ const getImageData = () => {
         } else {
           imgs.map((item) => {
             let ele = document.createElement('div');
-            ele.style.maxWidth = '80px';
-            ele.style.maxHeight = '80px';
+            ele.style.maxWidth = '150px';
+            ele.style.maxHeight = '150px';
             ele.style.width = 'auto';
             ele.style.height = 'auto';
             ele.innerHTML = item;
@@ -28,8 +28,8 @@ const getImageData = () => {
             img.style.objectFit = 'contain';
             img.style.width = 'auto';
             img.style.height = 'auto';
-            img.style.maxWidth = '80px';
-            img.style.maxHeight = '80px';
+            img.style.maxWidth = '150px';
+            img.style.maxHeight = '150px';
             a.parentNode.append(ele);
           });
         }

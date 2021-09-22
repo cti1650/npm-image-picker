@@ -1,7 +1,7 @@
 {
   "name": "npm Image Picker Extension",
   "description": "npm Image Picker Extension",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "icons": {
     "16": "/icons/icon-16x16.png",
     "48": "/icons/icon-48x48.png",
@@ -9,8 +9,14 @@
     "19": "/icons/icon-19x19.png"
   },
   "background": {
-    "scripts": ["js/background.js"]
+    "service_worker": "js/background.js"
   },
-  "permissions": ["contextMenus"],
-  "manifest_version": 2
+  "host_permissions": [
+    "https://www.npmjs.com/*"
+  ],
+  "permissions": [
+    "tabs",
+    "scripting"
+  ],
+  "manifest_version": 3
 }
